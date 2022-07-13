@@ -18,7 +18,7 @@ CREATE TABLE analysis.tmp_rfm_monetary_value (
  
  ------- СОЗДАНИЕ витрины dm_rfm_segments--------------------------------
 create table analysis.dm_rfm_segments (
-             user_id INTEGER constraint ID_NN INT NOT NULL PRIMARY KEY,
+             user_id INTEGER constraint ID_NN NOT NULL PRIMARY KEY,
              recency INTEGER check(recency >0 and recency <=5),
              frequency INTEGER check(recency >0 and recency <=5),
              monetary_value INTEGER check(recency >0 and recency <=5));

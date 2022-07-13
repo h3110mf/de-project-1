@@ -1,17 +1,17 @@
-create view analysis.orderitems as
-select * from production.orderitems
+create or replace view analysis.orderitems as
+select * from production.orderitems;
 
-create view analysis.orders as
+create or replace view analysis.orders as
 select * from production.orders;
 
-create view analysis.orderstatuses as
+create or replace view analysis.orderstatuses as
 select * from production.orderstatuses;
 
-create view analysis.orderstatuslog as
+create or replace view analysis.orderstatuslog as
 select * from production.orderstatuslog;
 
-create view analysis.users as
+create or replace view analysis.users as
 select * from production.users;
 
-create view analysis.products as
+create or replace view analysis.products as
 select * from production.products;
