@@ -22,3 +22,55 @@ order_id - Primary key,
  в таблице `orderstatuslog` - `id`, в таблице `orderstatuses` - `id`, в таблице `orderitems` - `id`, в таблице `products` - `id`), 
 так же были использованы внешние ключи (в таблице `orderstatuslog` внешними ключами стали `order_id` для таблицы `orders` и `status_id`
  для таблицы `orderstatuses` - `order_id` для таблицы `orders` и `product_id` для таблицы `products`). 
+
+Orderitems:
+
+Название	Владелец	Тип	Выражение	Комментарий
+orderitems_quantity_check	orderitems	CHECK	((quantity > 0))	
+quantity				
+orderitems_price_check	orderitems	CHECK	((price >= (0)::numeric))	
+price				
+orderitems_pkey	orderitems	PRIMARY KEY		
+id				
+orderitems_order_id_product_id_key	orderitems	UNIQUE KEY		
+product_id				
+order_id				
+orderitems_check	orderitems	CHECK	(((discount >= (0)::numeric) AND (discount <= price)))	
+price				
+discount				
+
+orders
+Название	       Владелец	Тип	      Выражение	
+orders_check	orders	CHECK	       ((cost = (payment + bonus_payment)))	
+cost				
+payment				
+bonus_payment				
+orders_pkey	       orders	PRIMARY KEY		
+order_id				
+
+orderstatuses
+Название	             Владелец	          Тип	
+orderstatuses_pkey	orderstatuses	PRIMARY KEY		
+id				
+
+orderstatuslog
+Название	                              Владелец	           Тип
+orderstatuslog_order_id_status_id_key	orderstatuslog	UNIQUE KEY		
+order_id				
+status_id				
+orderstatuslog_pkey	                  orderstatuslog	PRIMARY KEY		
+id				
+
+products
+Название	            Владелец	Тип	           Выражение	
+products_pkey	      products	PRIMARY KEY		
+id				
+products_price_check	products	CHECK	           ((price >= (0)::numeric))	
+price				
+
+
+users           
+Название	 Владелец	Тип
+users_pkey	 users	PRIMARY KEY		
+id				
+
